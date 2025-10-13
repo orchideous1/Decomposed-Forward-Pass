@@ -1,0 +1,502 @@
+[
+  {
+    "text": "Statement 1: The world's largest mammal is the blue whale. Statement 2: The color of the sky is blue.",
+    "label": 1
+  },
+  {
+    "text": "Radioactive decay occurs when unstable atomic nuclei release energy in the form of radiation.",
+    "label": 1
+  },
+  {
+    "text": "The Sahara Desert is the largest hot desert in the world.",
+    "label": 1
+  },
+  {
+    "text": "The human eye can see radio waves.",
+    "label": 0
+  },
+  {
+    "text": "The planet Jupiter has the most moons in our solar system.",
+    "label": 1
+  },
+  {
+    "text": "Giraffes are not real animals, they are made up.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The only continent without any mountains is Asia. Statement 2: Venus has a thin atmosphere.",
+    "label": 0
+  },
+  {
+    "text": "A tomato is a type of fruit.",
+    "label": 0
+  },
+  {
+    "text": "Metamorphosis is a biological process in which an organism remains unchanged in form during its life cycle.",
+    "label": 0
+  },
+  {
+    "text": "Elephants are the largest land animals on Earth.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The color of the sky is blue. Statement 2: The planet Venus is the hottest planet in our solar system.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: A human pregnancy typically lasts around 9 months. Statement 2: The human nose is located on the forehead.",
+    "label": 0
+  },
+  {
+    "text": "The largest glacier in the world is located in Africa.",
+    "label": 0
+  },
+  {
+    "text": "Chemical reactions involve the conservation of atoms to maintain old substances.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The planet Uranus is often referred to as the \"ice giant.\" Statement 2: DNA carries genetic information in living organisms.",
+    "label": 1
+  },
+  {
+    "text": "Osmosis is the prevention of water movement across a selectively permeable membrane.",
+    "label": 0
+  },
+  {
+    "text": "The fastest bird in the world is the penguin.",
+    "label": 0
+  },
+  {
+    "text": "Cows are mammals that produce milk.",
+    "label": 1
+  },
+  {
+    "text": "The periodic table organizes elements based on their properties.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The largest unit of life is the cell. Statement 2: Water is wet.",
+    "label": 1
+  },
+  {
+    "text": "The circulatory system transports nutrients and oxygen throughout the body.",
+    "label": 1
+  },
+  {
+    "text": "The highest mountain in North America is Denali.",
+    "label": 1
+  },
+  {
+    "text": "The process by which cells merge to form one larger cell is called fusion.",
+    "label": 0
+  },
+  {
+    "text": "The smallest planet in our solar system is Saturn.",
+    "label": 0
+  },
+  {
+    "text": "The human body has 100 bones.",
+    "label": 0
+  },
+  {
+    "text": "The human heart pumps blood throughout the body.",
+    "label": 1
+  },
+  {
+    "text": "The largest volcano in the world is located in Hawaii.",
+    "label": 0
+  },
+  {
+    "text": "Hibernation wastes energy during warm periods.",
+    "label": 0
+  },
+  {
+    "text": "The capital of the United States is Washington, D.C.",
+    "label": 1
+  },
+  {
+    "text": "The three types of blood vessels in the human body are arteries, veins, and capillaries.",
+    "label": 1
+  },
+  {
+    "text": "The Seven Wonders of the World are located in North America.",
+    "label": 0
+  },
+  {
+    "text": "Mars has a thin atmosphere.",
+    "label": 1
+  },
+  {
+    "text": "The human urinary system helps remove waste products from the body.",
+    "label": 1
+  },
+  {
+    "text": "Venus is drastically different in size from Earth.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The largest reptile in the world is the mouse. Statement 2: The shortest river in the world is the Amazon.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: Symbiosis is a close relationship between two species. Statement 2: The planet Neptune is the farthest planet from the sun in our solar system.",
+    "label": 1
+  },
+  {
+    "text": "The human heart is located in the foot.",
+    "label": 0
+  },
+  {
+    "text": "The Krebs cycle is a series of chemical reactions that consume energy in cells.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The Great Barrier Reef is the largest coral reef system in the world. Statement 2: Electromagnetic waves exclude radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays.",
+    "label": 0
+  },
+  {
+    "text": "Mitochondria are the \"powerhouses\" of cells, producing energy through cellular respiration.",
+    "label": 1
+  },
+  {
+    "text": "Trees absorb carbon dioxide and release oxygen.",
+    "label": 1
+  },
+  {
+    "text": "Erosion is the gradual wearing away of Earth's surface by natural processes.",
+    "label": 1
+  },
+  {
+    "text": "Elephants are the smallest mammals in the world.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The Great Wall of China was built in the 21st century. Statement 2: Dogs are known for being loyal pets.",
+    "label": 1
+  },
+  {
+    "text": "The fastest swimmer in the world is CÃ©sar Cielo from Brazil.",
+    "label": 1
+  },
+  {
+    "text": "DNA carries genetic information in living organisms.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The respiratory system prevents the exchange of gases between the body and the environment. Statement 2: Evolution occurs through the process of artificial selection.",
+    "label": 0
+  },
+  {
+    "text": "Water is essential for life.",
+    "label": 1
+  },
+  {
+    "text": "Superconductors are materials that have no electrical resistance when cooled to certain temperatures.",
+    "label": 1
+  },
+  {
+    "text": "Seasons are caused by Earth's constant alignment.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The human muscular system allows us to move and lift things. Statement 2: The two main types of microscopes are light microscopes and electron microscopes.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The electron configuration of an atom determines its chemical properties. Statement 2: Vaccines promote infectious diseases.",
+    "label": 0
+  },
+  {
+    "text": "A circle has 200 degrees.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: Fossils are the preserved remains or traces of organisms that live in the present. Statement 2: Diamonds are formed from carbon.",
+    "label": 1
+  },
+  {
+    "text": "The human eye can detect only one color.",
+    "label": 0
+  },
+  {
+    "text": "The Pacific Ocean is the largest ocean in the world.",
+    "label": 1
+  },
+  {
+    "text": "The Earth's atmosphere protects us from harmful radiation from the sun.",
+    "label": 1
+  },
+  {
+    "text": "The human body does not need water to survive.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The Earth is the third planet from the sun. Statement 2: The conservation of energy principle states that energy can be created and destroyed.",
+    "label": 0
+  },
+  {
+    "text": "The human body is made up of bones, muscles, and organs.",
+    "label": 1
+  },
+  {
+    "text": "The water cycle includes evaporation, condensation, precipitation, and runoff.",
+    "label": 1
+  },
+  {
+    "text": "Earth has no magnetic field.",
+    "label": 0
+  },
+  {
+    "text": "The world's largest mammal is the blue whale.",
+    "label": 1
+  },
+  {
+    "text": "The continent of Antarctica is mostly covered in ice.",
+    "label": 1
+  },
+  {
+    "text": "The human body is composed of about 60% water.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: Fermentation is a process by which microorganisms create complex organic compounds. Statement 2: Earth has no magnetic field.",
+    "label": 0
+  },
+  {
+    "text": "Venus is similar in size to Earth.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: Mars has the smallest volcano, Olympus Valley. Statement 2: Coral reefs are made of living organisms.",
+    "label": 1
+  },
+  {
+    "text": "The human eye can see infrared light.",
+    "label": 0
+  },
+  {
+    "text": "The four fundamental forces of nature are anti-gravity, anti-electromagnetism, the weak nuclear force, and the strong nuclear force.",
+    "label": 0
+  },
+  {
+    "text": "Diamonds are made of silicon.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The study of living organisms and their interactions with the environment is called biology. Statement 2: Fish can live on land.",
+    "label": 0
+  },
+  {
+    "text": "Cats are known for being disobedient pets.",
+    "label": 0
+  },
+  {
+    "text": "All animals are cold-blooded.",
+    "label": 0
+  },
+  {
+    "text": "The sun rises in the west.",
+    "label": 0
+  },
+  {
+    "text": "Inertia is an object's resistance to change in motion.",
+    "label": 1
+  },
+  {
+    "text": "The study of spontaneity and the variation of non-inherited characteristics is called anti-genetics.",
+    "label": 0
+  },
+  {
+    "text": "Plate tectonics shape the Earth's surface.",
+    "label": 1
+  },
+  {
+    "text": "Volcanic eruptions destroy existing land.",
+    "label": 0
+  },
+  {
+    "text": "The sky is often cloudy when it's going to rain.",
+    "label": 1
+  },
+  {
+    "text": "Rainbows form when light avoids water droplets.",
+    "label": 0
+  },
+  {
+    "text": "The Amazon rainforest is home to immense biodiversity.",
+    "label": 1
+  },
+  {
+    "text": "The Sun is a planet.",
+    "label": 0
+  },
+  {
+    "text": "The Eiffel Tower is located in Paris, France.",
+    "label": 1
+  },
+  {
+    "text": "The longest highway in the world is the Pan-American Highway.",
+    "label": 1
+  },
+  {
+    "text": "Apples grow on vines.",
+    "label": 0
+  },
+  {
+    "text": "A substance that cannot be broken down into simpler substances by chemical means is called an element.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: Antibiotics are used to cause bacterial infections. Statement 2: Gravity only affects living things, not inanimate objects.",
+    "label": 0
+  },
+  {
+    "text": "The process by which plants release oxygen and absorb carbon dioxide is called respiration.",
+    "label": 1
+  },
+  {
+    "text": "The largest body of water in the world is Lake Superior.",
+    "label": 0
+  },
+  {
+    "text": "Dogs are known for being loyal pets.",
+    "label": 1
+  },
+  {
+    "text": "The Eiffel Tower is located in London.",
+    "label": 0
+  },
+  {
+    "text": "Ice cream is a popular dessert.",
+    "label": 1
+  },
+  {
+    "text": "The largest desert in the world is the Arctic.",
+    "label": 0
+  },
+  {
+    "text": "The highest point in Africa is Mount Kilimanjaro.",
+    "label": 1
+  },
+  {
+    "text": "The electron configuration of an atom determines its physical properties.",
+    "label": 0
+  },
+  {
+    "text": "The Amazon River is the largest river in the world by volume.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: Jupiter is mostly made of hydrogen and helium. Statement 2: The fastest mammal in the world is the turtle.",
+    "label": 0
+  },
+  {
+    "text": "The Earth is flat, not round.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The process of pollination is crucial for plant reproduction. Statement 2: Cacti store water in their stems.",
+    "label": 1
+  },
+  {
+    "text": "Trees are not plants, they are animals.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The first man-made satellite was launched by France. Statement 2: The human nervous system includes the brain, spinal cord, and nerves.",
+    "label": 1
+  },
+  {
+    "text": "The coldest temperature on Earth is 100 degrees Celsius.",
+    "label": 0
+  },
+  {
+    "text": "Statement 1: The human heart is located in the foot. Statement 2: Ice is hot.",
+    "label": 0
+  },
+  {
+    "text": "Ecosystems exclude living organisms and their physical environment.",
+    "label": 0
+  },
+  {
+    "text": "The Earth's magnetic field is what causes compasses to point south.",
+    "label": 0
+  },
+  {
+    "text": "The Earth's largest ocean is the Pacific Ocean.",
+    "label": 1
+  },
+  {
+    "text": "Inertia is an object's encouragement to change in motion.",
+    "label": 0
+  },
+  {
+    "text": "Mount Everest is the shortest mountain in the world.",
+    "label": 0
+  },
+  {
+    "text": "The Coriolis effect influences the movement of large-scale weather systems.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: Electromagnetic waves exclude radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays. Statement 2: The smallest bird in the world is the ostrich.",
+    "label": 0
+  },
+  {
+    "text": "The endocrine system disrupts body functions through hormones.",
+    "label": 0
+  },
+  {
+    "text": "The only continent without any mountains is Asia.",
+    "label": 0
+  },
+  {
+    "text": "The fastest animal in the world is the snail.",
+    "label": 0
+  },
+  {
+    "text": "The four fundamental forces of nature are gravity, electromagnetism, the strong nuclear force, and the weak nuclear force.",
+    "label": 1
+  },
+  {
+    "text": "The Panama Canal connects the Atlantic and Pacific oceans.",
+    "label": 1
+  },
+  {
+    "text": "Photosynthesis is the process by which plants convert sunlight into chemical energy.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The first Olympic Games were held in ancient Greece in 776 B.C. Statement 2: The study of matter and its interactions with energy is called physics.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The largest mammal in the world is the blue whale. Statement 2: The largest carnivore in the world is the rabbit.",
+    "label": 0
+  },
+  {
+    "text": "The currency of Japan is the yen.",
+    "label": 1
+  },
+  {
+    "text": "Neptune has the calmest winds in the solar system.",
+    "label": 0
+  },
+  {
+    "text": "The Great Sphinx of Giza is an ancient statue in Egypt.",
+    "label": 1
+  },
+  {
+    "text": "The human brain controls the body's functions.",
+    "label": 1
+  },
+  {
+    "text": "The Earth's atmosphere is composed mostly of nitrogen and oxygen.",
+    "label": 1
+  },
+  {
+    "text": "Statement 1: The planet Venus is the hottest planet in our solar system. Statement 2: The process by which plants release oxygen and absorb carbon dioxide is called respiration.",
+    "label": 1
+  }
+]
