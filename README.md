@@ -1,6 +1,9 @@
 # DePass Attribution Toolkit
 
-This repository provides an implementation of DePass, a modular and extensible attribution framework for analyzing transformer-based language models. DePass supports arbitrary-granularity attribution by allowing initialization and propagation of attribution signals from any component within a transformer model. In this implementation, we demonstrate several representative use cases including token-level, neuron-level, module-level (MLP or attention), head-level, and custom subspace-level attributions, enabling fine-grained interpretability of internal mechanisms across attention and feedforward layers.
+This repository provides the official implementation of **[NeurIPS 2025] DePass: Unified Feature Attributing by Simple Decomposed Forward Pass**.
+
+DePass is a modular and extensible attribution framework for analyzing transformer-based language models. It supports arbitrary-granularity attribution by allowing initialization and propagation of attribution signals from any component within a transformer model. In this implementation, we demonstrate several representative use cases including token-level, neuron-level, module-level (MLP or attention), head-level, and custom subspace-level attributions, enabling fine-grained interpretability of internal mechanisms across attention and feedforward layers.
+
 
 ## Environment Setup
 
