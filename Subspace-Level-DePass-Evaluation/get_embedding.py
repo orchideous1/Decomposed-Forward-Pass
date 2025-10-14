@@ -13,15 +13,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch.nn as nn
 import argparse
 
-# python -u get_embedding.py \
-#     --model_name "llama-2-7b-chat-hf" \
-#     --model_path "/root/models/transformers/llama-2/llama-2-7b-chat-hf/" \
-#     --dataset "counterfact.json" \
-#     --device "auto" \
-#     --output_dir "./results" \
-#     --dtype "bfloat16" \
-#     --layer_idx 20
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Get model answers')
     parser.add_argument('--model_name', type=str, default='llama_3_1_8b_instruct',

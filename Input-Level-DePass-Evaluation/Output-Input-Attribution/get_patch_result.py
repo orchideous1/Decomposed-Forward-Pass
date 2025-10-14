@@ -11,14 +11,6 @@ import os
 import json
 import math
 
-# python get_patch_result.py \
-#     --model_name llama-2-7b-chat-hf \
-#     --model_path /root/models/transformers/llama-2/llama-2-7b-chat-hf \
-#     --patch_type patch_top \
-#     --dataset known_1000.json \
-#     --output_dir ./patch_results \
-#     --device cuda:0 \
-#     --dtype float16
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Patch result evaluation script')

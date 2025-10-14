@@ -14,19 +14,6 @@ import argparse
 
 
 
-# nohup python -u get_mask_head_answer.py \
-#     --model_name "llama-2-7b-chat-hf" \
-#     --model_path "/root/models/transformers/llama-2/llama-2-7b-chat-hf" \
-#     --dataset "counterfact_data.json" \
-#     --device "auto" \
-#     --output_dir "./results" \
-#     --dtype "bfloat16" \
-#     --mask_top_percents  0.5 1 2 3 4 5 6 7 8 9 10 13 15 18 20 25 30 40\
-#     --mask_bottom_percents 1 5 10 20 30 40 50 60 70 80 85 90 95 \
-#     --max_samples 100 \
-#     --results_exist False > output.log 2>&1 
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Get model answers')
     parser.add_argument('--model_name', type=str, default='llama-2-7b-chat-hf',
@@ -189,7 +176,6 @@ def main():
     model_path = args.model_path
     dataset_name = args.dataset.split('.')[0]
     model_type = normalize_model_name(args.model_name)
-    #归一化model_name检测llama和qwen
     if "llama" in model_type:
         model_type = "llama"
     elif "qwen" in model_type:
@@ -287,8 +273,6 @@ def main():
             importances['DePass'] = get_head_scores_decompose_based(AttrStateManager, prompt,  target_token)
             importances['DePass_abs'] = np.abs(importances['DePass'])
             importances['random'] = np.random.rand(*importances['DePass'].shape)
-            # from IPython import embed; embed()
-            # assert False
             for method in methods:
                 for mask_type in mask_types:
                     if mask_type == 'top':

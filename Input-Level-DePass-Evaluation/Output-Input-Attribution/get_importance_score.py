@@ -22,14 +22,6 @@ from tqdm import tqdm
 import numpy as np
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-# python get_importance_score.py \
-#     --model_name llama-2-7b-chat-hf \
-#     --model_path /root/models/transformers/llama-2/llama-2-7b-chat-hf \
-#     --dataset known_1000.json \
-#     --device cuda:0 \
-#     --output_dir ./results \
-#     --dtype bfloat16
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Attribution evaluation script')
     parser.add_argument('--model_name', type=str, default='llama-2-7b-chat-hf',

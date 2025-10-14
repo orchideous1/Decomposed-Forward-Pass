@@ -11,20 +11,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch.nn as nn
 import argparse
 
-# nohup python -u get_mask_neuron_answer.py \
-#     --model_name "llama-2-7b-chat-hf" \
-#     --model_path "/root/models/transformers/llama-2/llama-2-7b-chat-hf/" \
-#     --dataset "counterfact_data.json" \
-#     --device "auto" \
-#     --output_dir "./results" \
-#     --dtype "bfloat16" \
-#     --compute_num 12 \
-#     --mask_top_percents  0.0001 0.0005 0.001 0.005 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.1 0.15 0.20 1 \
-#     --mask_bottom_percents 1 5 10 20 30 40 50 60 70 75 80 83 85 88 90 93 95 \
-#     --max_samples 100 \
-#     --results_exist False > output13b.log 2>&1
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Get model answers')
     parser.add_argument('--model_name', type=str, default='llama-2-7b-chat-hf',

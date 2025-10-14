@@ -4,13 +4,6 @@ import os
 from transformers import AutoModel, AutoTokenizer
 from classifier import ClassifierManager
 
-# python train_classifier.py \
-#     --model_name "Qwen2-7B-Instruct" \
-#     --model_path "/root/models/transformers/Qwen/Qwen2-7B-Instruct/" \
-#     --device "auto" \
-#     --dtype "float16"
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a multilingual prompt classifier.')
     parser.add_argument('--model_name', type=str, default='llama-3.1-8b-instruct',

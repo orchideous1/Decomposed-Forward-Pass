@@ -12,20 +12,6 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import argparse
 
 
-
-# python get_model_answer.py \
-#     --model_name "llama-2-7b-chat-hf" \
-#     --model_path "/root/models/transformers/llama-2/llama-2-7b-chat-hf" \
-#     --dataset "counterfact_data.json" \
-#     --device "auto" \
-#     --type truthful \
-#     --output_dir "./results" \
-#     --classifier_start_layer 10 \
-#     --classifier_end_layer -1 \
-#     --max_mask_percent 0.3 \
-#     --dtype "bfloat16"
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description='Get model answers')
     parser.add_argument('--model_name', type=str, default='llama-2-7b-chat-hf',

@@ -2,13 +2,8 @@ import argparse
 import torch
 import os
 from transformers import AutoModel, AutoTokenizer
-from classifier import ClassifierManager  # 确保你已定义好 classifier.py 中的逻辑
+from classifier import ClassifierManager
 
-# python train_classifier.py \
-#     --model_name "llama-2-7b-chat-hf" \
-#     --model_path "/root/models/transformers/llama-2/llama-2-7b-chat-hf" \
-#     --probing_type "truthful" \
-#     --device "auto" 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train classifiers for probing subspace')
     parser.add_argument('--model_name', type=str, default='llama-3.1-8b-instruct',
