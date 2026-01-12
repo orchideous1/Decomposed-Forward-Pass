@@ -55,21 +55,53 @@ def apply_rotary_pos_emb_qwen(q, k, cos, sin, position_ids=None, unsqueeze_dim=1
     k_embed = (k * cos) + (rotate_half(k) * sin)
     return q_embed, k_embed
 
-def compute_attention_weights_mha(state_norm, attn_layer, layer_idx, attn_mask, dropout_p, is_causal, apply_rotary_pos_emb,model_name):
+def apply_multimodal_rotary_pos_emb(q, k, cos, sin, mrope_section, unsqueeze_dim=1):
+    mrope_section = mrope_section * 2
+    cos = torch.cat([m[i % 3] for i, m in enumerate(cos.split(mrope_section, dim=-1))], dim=-1).unsqueeze(
+        unsqueeze_dim
+    )
+    sin = torch.cat([m[i % 3] for i, m in enumerate(sin.split(mrope_section, dim=-1))], dim=-1).unsqueeze(
+        unsqueeze_dim
+    )
+
+    q_embed = (q * cos) + (rotate_half(q) * sin)
+    k_embed = (k * cos) + (rotate_half(k) * sin)
+    return q_embed, k_embed
+
+def compute_attention_weights_mha(state_norm, attn_layer, layer_idx, attn_mask, dropout_p, is_causal, apply_rotary_pos_emb, model_name, position_embeddings=None, mrope_section=None):
     q_proj, k_proj = attn_layer.q_proj, attn_layer.k_proj
     query_states = q_proj(state_norm)
     key_states = k_proj(state_norm)    
     bsz, seq_len, hidden_dim = query_states.shape
     num_heads = attn_layer.num_heads
-    head_dim = hidden_dim // num_heads
-    position_ids = torch.arange(seq_len, dtype=torch.long, device=state_norm.device).unsqueeze(0)
-    query_states = query_states.view(bsz, seq_len, attn_layer.num_heads, attn_layer.head_dim).transpose(1, 2)
-    key_states = key_states.view(bsz, seq_len, attn_layer.num_key_value_heads, attn_layer.head_dim).transpose(1, 2)
+    head_dim = attn_layer.head_dim
+    
+    query_states = query_states.view(bsz, seq_len, num_heads, head_dim).transpose(1, 2)
+    key_states = key_states.view(bsz, seq_len, attn_layer.num_key_value_heads, head_dim).transpose(1, 2)
+    
     if model_name == "llama":
-        cos, sin = attn_layer.rotary_emb(state_norm, position_ids)
+        if position_embeddings is None:
+            position_ids = torch.arange(seq_len, dtype=torch.long, device=state_norm.device).unsqueeze(0)
+            cos, sin = attn_layer.rotary_emb(state_norm, position_ids)
+        else:
+            cos, sin = position_embeddings
+        query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
     elif model_name == "qwen":
-        cos, sin = attn_layer.rotary_emb(state_norm, seq_len)
-    query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+        if position_embeddings is None:
+            # 备选方案：如果未捕获到 embeddings，尝试计算（可能不准，仅作兜底）
+            cos, sin = attn_layer.rotary_emb(state_norm, seq_len)
+        else:
+            cos, sin = position_embeddings
+
+        if query_states.device != cos.device:
+            cos = cos.to(query_states.device)
+            sin = sin.to(query_states.device)
+            
+        if mrope_section is not None:
+            query_states, key_states = apply_multimodal_rotary_pos_emb(query_states, key_states, cos, sin, mrope_section)
+        else:
+            query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+            
     key_states = repeat_kv(key_states, attn_layer.num_heads // attn_layer.num_key_value_heads)
     _, _, q_len, _ = query_states.shape
     L, S = query_states.size(-2), key_states.size(-2)
@@ -97,37 +129,47 @@ def hook_manager(model: nn.Module):
 
     block_inputs: Dict[int, torch.Tensor] = {}
     attn_intermediates: Dict[int, torch.Tensor] = {}
+    attn_position_embeddings: Dict[int, Tuple[torch.Tensor, torch.Tensor]] = {}
     final_outputs: Dict[int, torch.Tensor] = {}
     hook_handles: List[torch.utils.hooks.RemovableHandle] = []
 
     def get_block_pre_hook(layer_idx: int):
         def hook(module: nn.Module, inputs: Tuple[torch.Tensor]):
-            block_inputs[layer_idx] = inputs[0]
+            block_inputs[layer_idx] = inputs[0].detach().cpu()
         return hook
 
     def get_self_attn_hook(layer_idx: int):
-        def hook(module: nn.Module, inputs: Tuple[torch.Tensor], output: Union[torch.Tensor, Tuple[torch.Tensor, ...]]):
-            attn_out = output[0] if isinstance(output, tuple) else output
-            device = attn_out.device
-            default_zeros = torch.zeros_like(attn_out, device=device)
+        def hook(module: nn.Module, args: Tuple[torch.Tensor], kwargs: Dict, output: Union[torch.Tensor, Tuple[torch.Tensor, ...]]):
+            # Try to get position_embeddings from kwargs first
+            pos_emb = kwargs.get("position_embeddings", None)
+            
+            if pos_emb is not None:
+                if isinstance(pos_emb, tuple):
+                    attn_position_embeddings[layer_idx] = tuple(t.detach().cpu() for t in pos_emb)
+                else:
+                    attn_position_embeddings[layer_idx] = pos_emb.detach().cpu()
+            
+            attn_out = output[0].detach().cpu() if isinstance(output, tuple) else output.detach().cpu()
+            default_zeros = torch.zeros_like(attn_out)
             block_input = block_inputs.get(layer_idx, default_zeros)
-            if block_input.device != device:
-                block_input = block_input.to(device)
+            # 确保在同一设备
+            if block_input.device != attn_out.device:
+                block_input = block_input.to(attn_out.device)
             attn_intermediates[layer_idx] = block_input + attn_out.clone()
         return hook
 
     def get_block_post_hook(layer_idx: int):
         def hook(module: nn.Module, inputs: Tuple[torch.Tensor], output: torch.Tensor):
-            final_outputs[layer_idx] = output
+            final_outputs[layer_idx] = (o.detach().cpu() for o in output)
         return hook
 
     for idx, block in enumerate(model.model.layers):
         hook_handles.append(block.register_forward_pre_hook(get_block_pre_hook(idx)))
-        hook_handles.append(block.self_attn.register_forward_hook(get_self_attn_hook(idx)))
+        hook_handles.append(block.self_attn.register_forward_hook(get_self_attn_hook(idx), with_kwargs=True))
         hook_handles.append(block.register_forward_hook(get_block_post_hook(idx)))
 
     try:
-        yield block_inputs, attn_intermediates, final_outputs
+        yield block_inputs, attn_intermediates, final_outputs, attn_position_embeddings
     finally:
         for h in hook_handles:
             h.remove()

@@ -1,1 +1,2 @@
 from .manager import decomposed_state_manager
+from .qwenOmnimanager import qwenOmnimanager
